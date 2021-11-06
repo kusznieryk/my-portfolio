@@ -1,0 +1,7 @@
+import '../public/icons/002-home.png'
+import '../public/icons/003-linkedin-sign.png'
+import '../public/icons/007-twitter-sign.png'
+import '../public/icons/004-github-sign.png'
+import '../public/icons/005-user-shape.png'
+import '../public/icons/001-suitcase.png'
+import '../public/icons/006-email.png'

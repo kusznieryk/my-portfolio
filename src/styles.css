@@ -1,3 +1,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base{
+  body{
+      @apply bg-bg text-text font-main 
+  }
+  h1,h2{
+      @apply font-title
+  }
+  section{
+      @apply h-screen flex flex-col md:flex-row items-center justify-evenly
+  }
+  section, footer{
+      @apply  mx-10 py-16 md:mt-0 md:ml-20  
+  }
+  nav{
+      @apply bg-navbar fixed top-0 w-full md:w-14 md:h-screen
+  }
+  b{
+      @apply text-prim
+  }
+  span{
+      @apply text-sec
+  }
+}
+
+@layer utilities{
+  .navbar{ 
+      @apply flex items-center justify-around w-full h-full py-2 font-title;
+      @apply md:flex-col  
+  }
+  .navbar.show{
+      @apply flex-col h-80;
+  }
+  .navbar p{
+      @apply text-xl tracking-widest bg-navbar transition duration-300 ease-in-out whitespace-nowrap;
+      transform: translateY(-100vh);
+      @apply rounded-r md:transform md:translate-y-1 sm:opacity-0 sm:hover:opacity-100 sm:p-2;
+  }
+  .navbar.show p{
+      @apply transform translate-y-1;
+  }
+  .navbar li{
+      @apply w-10 h-10 opacity-20;
+      @apply md:flex gap-2 items-center
+  }
+  .navbar.show li{
+      @apply flex items-center justify-start h-auto w-52 gap-12;
+  }
+   li.active{
+      @apply opacity-80;
+  }
+  .icon{
+      @apply w-10 filter invert;
+  }
+}
