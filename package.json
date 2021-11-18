@@ -1,8 +1,8 @@
 {
-    "name": "social-media-dashboard-with-theme-switcher-master",
+    "name": "my-portfolio",
     "version": "1.0.0",
-    "description": "![Design preview for the Social media dashboard with theme switcher coding challenge](./design/desktop-preview.jpg)",
     "main": "index.js",
+    "description":"Personal portfolio",
     "scripts": {
         "build": "webpack --mode=production --node-env=production",
         "start": "webpack --mode=development",
@@ -21,6 +21,7 @@
         "autoprefixer": "^10.3.7",
         "babel-loader": "^8.2.3",
         "css-loader": "^6.4.0",
+        "cssnano": "^5.0.11",
         "file-loader": "^6.2.0",
         "html-webpack-plugin": "^5.4.0",
         "mini-css-extract-plugin": "^2.4.3",

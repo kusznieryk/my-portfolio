@@ -12,21 +12,21 @@
   h1,
   h2,
   h3 {
-    @apply py-6 font-title;
+    @apply py-6 text-center font-title ;
   }
   h1 {
-    @apply px-16 text-6xl lg:text-8xl ;
+    @apply max-w-lg mx-auto text-6xl lg:text-7xl;
   }
   h2 {
-    @apply text-5xl lg:text-6xl;
+    @apply text-5xl
   }
   h3 {
-    @apply text-4xl lg:text-5xl;
+    @apply text-4xl
   }
   p {
-    @apply text-2xl lg:text-3xl;
+    @apply text-xl
   }
-  section {
+    section {
     @apply flex flex-col items-center h-screen justify-evenly md:flex-row;
   }
   section div {
@@ -57,6 +57,12 @@
   button{
       @apply bg-prim h-10 hover:bg-opacity-80 my-4
   }
+  footer div{
+    @apply text-xs font-extralight opacity-40 text-center
+  }
+  footer a{
+      @apply underline
+  }
 }
 
 @layer components {
@@ -71,14 +77,23 @@
     transform: translateY(-100vh);
     @apply rounded-r md:transform md:translate-y-1 sm:opacity-0 sm:hover:opacity-100 sm:p-2;
   }
+  .navbar a {
+      @apply pointer-events-none md:pointer-events-auto;
+        @apply items-center md:flex gap-2;
+  }
+  .navbar.show a{
+      @apply pointer-events-auto
+  }
   .navbar.show p {
     @apply transform translate-y-1;
   }
   .navbar li {
     @apply w-10 h-10 opacity-20;
-    @apply items-center md:flex gap-2;
   }
-  .navbar.show li {
+  .navbar.show li{
+      @apply  w-52
+  }
+  .navbar.show a {
     @apply flex items-center justify-start h-auto w-52 gap-12;
   }
   li.active {
@@ -87,26 +102,44 @@
   .icon {
     @apply w-10 filter invert;
   }
+  .project-loading{
+      @apply flex flex-col items-center max-w-4xl opacity-70 gap-32 md:flex-row
+  }
+  .project-loading-circle{
+      @apply flex-none w-32 h-32 border-t-2 border-solid rounded-t-full animate-spin border-prim box-border
+  }
+  .project-loading-title{
+      @apply text-4xl text-left
+  }
   .project{
-      @apply flex md:mx-12  flex-col md:flex-row 
+      @apply md:mx-12  flex-col md:flex-row w-full animate-fade
+  }
+  .project.visible{
+      @apply animate-fadein
   }
   .project-next, .project-prev{
-      @apply cursor-pointer absolute top-2/4 p-4 text-xl rounded-sm bg-sec bg-opacity-0 hover:bg-opacity-20 text-sec
+      @apply cursor-pointer absolute top-2/4 p-4 text-4xl rounded-sm bg-sec bg-opacity-0 hover:bg-opacity-20 text-sec
   }
   .project-dots{
-      @apply flex justify-center
+      @apply flex justify-center absolute bottom-0 right-0 left-0
   }
   .project-dot{
-      @apply cursor-pointer h-4 w-4 bg-sec opacity-10 inline-block mx-2
+      @apply cursor-pointer h-4 w-4 bg-sec opacity-10 inline-block mx-2 rounded-full
+  }
+  .project-dot.active{
+      @apply opacity-50
+  }
+  .project-prev{
+      @apply -left-8
   }
   .project-next{
-      @apply right-0
+      @apply -right-8
   }
   .project-container{
-    @apply max-w-5xl relative mx-auto 
+    @apply max-w-6xl relative mx-auto h-full w-full flex items-center
   }
   .project-image{
-      @apply flex-1
+      @apply flex flex-1 items-center
   }
   .project-text{
       @apply flex-1 p-4 leading-10
@@ -114,28 +147,22 @@
   .project-name{
       @apply text-sec 
   }
-  .project-description{
-      @apply leading-10 
-  }
   .project-link{
       @apply flex flex-col justify-between pt-4 text-center md:flex-row 
   }
-  .project-live{
+  .project-code, .project-live{
       @apply text-2xl border-b-2 border-solid border-sec hover:border-opacity-60 
   }
-  .project-code{
-      @apply text-2xl border-b-2 border-solid border-sec hover:border-opacity-60
-  }
   .social-media{
-      @apply flex md:flex-col gap-16 items-center 
+      @apply flex md:flex-col gap-y-20 gap-x-8 items-center justify-between
   }
   .social-media p{
-      @apply opacity-0 md:opacity-100 text-xs md:text-2xl
+      @apply opacity-0 md:opacity-100 text-xs md:text-xl md:ml-4
   }
   .social-media img{
       filter: invert(0.7);
   }
-  .social-media li a {
+  .social-media a {
       @apply md:flex items-center
   }
 }

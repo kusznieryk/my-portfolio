@@ -4,8 +4,11 @@ module.exports = {
         require('tailwindcss'),
         require('autoprefixer'),
         ...process.env.NODE_ENV == 'production'
-            ? [purgecss({content: ['./**/*.html']})]
-            : []
+            ? [purgecss({content: ['./**/*.html', './**/*.js']})]
+            : [],
+         require('cssnano')({
+            preset: 'default',
+        }),
     ]
 };
 

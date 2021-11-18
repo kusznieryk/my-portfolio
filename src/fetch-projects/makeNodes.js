@@ -7,7 +7,7 @@ export function projects(arr){
     projects.push(next)
 
     const dots = []
-    for (let i = 0; i < arr.length; ++i) {
+    for (let i = 0; i < arr.length; i++) {
         dots.push(domEl('span', '', 'project-dot'))
     }
     const dotsContainer = makeDiv( 'project-dots', dots)
@@ -16,15 +16,15 @@ export function projects(arr){
  }
 
 function projectContainer({img, name, description, code, live}) {
-    const codeLink = makeLink('project-code', 'Code', code)
-    const liveLink = makeLink('project-live', 'Live', live)
+    const codeLink = makeLink('project-code', 'GitHub', code)
+    const liveLink = makeLink('project-live', 'Live version', live)
     const linksContainer = makeDiv('project-link', [codeLink, liveLink])
 
     const descriptonText = domEl('p', description, 'project-description')
     const title = domEl('h3', name, 'project-name')
     const textContainer = makeDiv('project-text', [title, descriptonText, linksContainer] )
 
-    const image = makeImg('image', img) 
+    const image = makeImg('image', img, name+' preview') 
     const imgContainer = makeDiv( 'project-image', image)
 
     const container = makeDiv('project', [imgContainer, textContainer])
@@ -41,9 +41,10 @@ function domEl(type, content, className) {
     return one
 }
 
-function makeImg(className, src) {
+function makeImg(className, src, alt) {
     const img = domEl('img', '', className)
-    img.src = src
+    img.dataSrc = src
+    img.alt = alt
     return img
 }
 
